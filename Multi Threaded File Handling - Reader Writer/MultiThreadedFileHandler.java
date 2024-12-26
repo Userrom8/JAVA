@@ -92,7 +92,8 @@ class Sync {
 	String readLine(int readerId, int lineNo) {
 		startRead(readerId);
 		String line = file.readLine();
-		System.out.println("(Reader " + readerId + " read line " + lineNo + ") content: " + (line != null ? "\""+line+"\"" : "EOF"));
+		System.out.println("(Reader " + readerId + " read line " + lineNo + ") content: "
+				+ (line != null ? "\"" + line + "\"" : "EOF"));
 		finishRead();
 		return line;
 	}
@@ -100,7 +101,7 @@ class Sync {
 	void writeLine(String content, int lineNo) {
 		startWrite();
 		file.writeLine(content);
-		System.out.println("Writer wrote line " + lineNo + ": " + content);
+		System.out.println("(Writer wrote line " + lineNo + ") content: " + "\"" + content + "\"");
 		finishWrite();
 	}
 }
@@ -172,8 +173,8 @@ public class MultiThreadedFileHandler {
 	}
 
 	public static void main(String[] args) {
-		String fileURL = "demo_file.txt";	//stores the data, read and written by threads
-		String ContextFileURL = "context_storage.txt";	//auxilliary file, stores the current state of the main file 
+		String fileURL = "demo_file.txt"; // stores the data, read and written by threads
+		String ContextFileURL = "context_storage.txt"; // auxilliary file, stores the current state of the main file
 
 		File mainFile = new File(ContextFileURL);
 		BufferedReader mainAccessReader = null;
