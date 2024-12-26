@@ -172,15 +172,14 @@ public class MultiThreadedFileHandler {
 	}
 
 	public static void main(String[] args) {
-		String fileURL = "demo_file.txt";
-		String ContextFileURL = "context_storage.txt";
+		String fileURL = "demo_file.txt";	//stores the data, read and written by threads
+		String ContextFileURL = "context_storage.txt";	//auxilliary file, stores the current state of the main file 
 
 		File mainFile = new File(ContextFileURL);
 		BufferedReader mainAccessReader = null;
 		BufferedWriter finalWriter = null;
 		int currentLine = 0;
 
-		// main thread to read the current file state
 		try {
 			mainAccessReader = new BufferedReader(new FileReader(mainFile));
 			String lineVal = mainAccessReader.readLine();
