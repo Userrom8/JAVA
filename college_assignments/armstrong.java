@@ -1,7 +1,3 @@
-// package JAVA.college_assignments;
-
-// import java.lang.Math;
-
 public class armstrong {
     static boolean isArmstrong(String num){
         int[] dp = {0, 1, -1, -1, -1, -1, -1, -1, -1, -1};

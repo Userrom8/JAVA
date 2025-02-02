@@ -1,5 +1,3 @@
-// package JAVA.college_assignments;
-
 import java.util.ArrayList;
 
 public class anagram {
