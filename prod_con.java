@@ -1,6 +1,6 @@
 //this code uses randomizer for a more realistic producer consumer behaviour
 //for bounded time execution, adjust the sleep() parameter(scale - ms) in main. [Default - 30s]
-//for unbounded time execution, either remove the exit(0) or, un-comment the joins after sleep
+//[OUTDATED]for unbounded time execution, either remove the exit(0) or, un-comment the joins after sleep
 
 
 import java.util.Random;
@@ -91,9 +91,14 @@ public class prod_con {
 
 		try {
 			Thread.sleep(30000);
-			//prod_thread.join();
-			//con_thread.join();
+			prod_thread.interrupt();
+			con_thread.interrupt();
 		} catch (InterruptedException e) {}
+
+		
+		//The threads are still alive, just inactive.
+		//this can be solidified by the following...
+		// System.out.println(prod_thread.isAlive()+" "+con_thread.isAlive());
 
 
 
